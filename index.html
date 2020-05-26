@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!--<meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">-->
+
+        <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min css">-->
+        <title>Login Validation</title>
+        <link rel="manifest" href="manifest.json">
+    </head>
+<body>
+    <div class="container-fluid">
+        <div class"row">
+            <div class="col-sm-9 col-md-7">
+                <div class="card">
+                    <div class="card-body">
+                        <form method="POST">
+                            <div class="form-label-group">
+                                <input type="email" id="mail" name="email" class="form-control" 
+                                placeholder="Enter email" required autofocus>
+                                <label for="mail">Email address</label>
+                            </div>
+
+                            <div class="form-label-group">
+                                <input type="password" id="pass" name="password" class="form-control" 
+                                placeholder="Enter password" required autofocus>
+                                <label for="mail">Password</label>
+                            </div>
+
+                            <input type="button" class="btn btn-lg btn-primary btn-block" 
+                             value="Submit" id="btnLogin" onClick="testLogin()">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function testLogin(){
+            let email=document.getElementById("mail").value;
+            let password=document.getElementById("pass").value; 
+
+            if(email=="sakinak.mca18@rvce.edu.in" && password=="sakina_53"){
+                alert("Validation done!!");
+                window.location="next.html"
+            }else{
+                alert("Authentation failure");
+                window.location="fail.html"
+            }       
+        }
+    
+        if('serviceWorker' in navigator){
+            window.addEventListener('load',()=>{
+                navigator.serviceWorker.register('sw.js').then(registration =>{
+                    console.log('serviceWorker registered',registration);
+                })
+                .catch(err => {
+                    console.error('Registration faile',err);
+                })
+            })
+        }
+    </script>
+</body>
+</html>
